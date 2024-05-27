@@ -1,0 +1,10 @@
+module memoryTable (address, wtime);
+input [4:0] address;
+output reg [7:0] wtime;
+always @(address)
+begin
+ case(address)
+ endcase
+end
+endmodule
+

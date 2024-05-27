@@ -1,0 +1,64 @@
+{C:/Users/moeme/Desktop/Final Project Computer Arc/decoder_7seg.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/decoder_7seg.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module decoder_7seg
+
+Top level modules:
+	decoder_7seg
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/TestBench.v} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/TestBench.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module TestBench
+
+Top level modules:
+	TestBench
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/memoryTable.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/memoryTable.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module memoryTable
+
+Top level modules:
+	memoryTable
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/QueueCounter.v} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/QueueCounter.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module QueueCounter
+
+Top level modules:
+	QueueCounter
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/wtime_split.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/wtime_split.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module wtime_split
+
+Top level modules:
+	wtime_split
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/posEdgeDetector.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/posEdgeDetector.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module posEdgeDetector
+
+Top level modules:
+	posEdgeDetector
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/memory_module.v} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/memory_module.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module memory_module
+
+Top level modules:
+	memory_module
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/is_full.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/is_full.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module is_full
+
+Top level modules:
+	is_full
+
+} {} {}} {C:/Users/moeme/Desktop/Final Project Computer Arc/clock_divider.V} {1 {vlog -work work {C:/Users/moeme/Desktop/Final Project Computer Arc/clock_divider.V}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module clock_divider
+
+Top level modules:
+	clock_divider
+
+} {} {}}

@@ -1,0 +1,35 @@
+module clock_divider (clk, reset, CLK1Hz);
+input clk, reset;
+output CLK1Hz;
+reg CLK1Hz;
+reg [21:0] count;
+always @(posedge clk or posedge reset)
+begin
+	if(reset)
+		begin
+			count <= 0;
+			CLK1Hz <= 0;
+		end
+	else
+		begin
+			if(count < 2)
+			  count <= count + 1;
+			else 
+			  begin
+				CLK1Hz = ~CLK1Hz;
+				count <= 0;
+			  end
+		end
+end		
+endmodule
+ module clock_divider_DUT();
+  reg A,B;
+  wire Y;
+  initial
+  begin 
+    A= 0; B=0; #100
+    A= 0; B=1; #100
+    A= 1; B=0; #100
+    A= 1; B=1; #100
+    END
+ endmodule

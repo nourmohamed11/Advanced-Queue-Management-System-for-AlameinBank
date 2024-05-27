@@ -1,0 +1,16 @@
+module QueueCounter (CLK10MS,reset,sensorAPosEdge,sensorBPosEdge,pcount);
+        input sensorAPosEdge,sensorBPosEdge;
+        input CLK10MS;
+        input reset;
+        output reg [3:0] pcount;
+        
+        //initial count = TestBench.initialState;
+        
+        always @(posedge CLK10MS, posedge reset) 
+        begin   
+        if (reset)pcount =0; 
+        else if (sensorBPosEdge & pcount  < 4'b0111) pcount = pcount + 1;
+        else if (sensorAPosEdge & pcount > 4'b0000) pcount = pcount - 1;
+        end
+      
+endmodule 

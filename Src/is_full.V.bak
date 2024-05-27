@@ -1,0 +1,17 @@
+module is_full (input reg [2:0] pcount, input sensorA, sensorB, output reg full, empty);	
+  
+	always @(posedge sensorA, negedge sensorB)
+          begin
+            if (pcount==3'b111) full = 1;
+            else 
+              begin
+                full =0;
+              end
+            if (pcount==3'b000) empty = 1;
+            else 
+            begin
+              empty=0;
+            end
+        
+           end   
+endmodule    

@@ -1,0 +1,37 @@
+module memory_module (input sensorB, input reg [1:0] tcount, input reg [2:0] pcount, output reg [4:0] wtime);
+         //input [4:0] address;
+         //output [4:0] data;
+         
+         //reg [4:0] rom[0:31];
+         
+         //integer i;
+         //integer j;
+         
+         //initial
+         //begin
+          
+            //for(i=0;i<=3;i=i+1) // Tcount i
+              //for(j=0; j <= 7;j=j+1) // Pcount j
+                //if (j == 0)
+                  //rom[i*4+j] = 0;
+                //else
+                  //rom[i*4+j] = 3*(j+i-1)/i;
+         //end
+         
+         
+         //assign data = rom[address];
+         wire [4:0] tempwaitTime;
+         always @(posedge sensorB) 
+         begin
+         if(tcount <= 2'b11 && pcount > 3'b000)
+          begin
+            assign wtime <= 3*(pcount + tcount -1)/tcount;
+            assign tempwaitTime <= wtime;
+          end
+         else
+           begin
+             assign wtime <= tempwaitTime;
+           end
+         end
+
+endmodule

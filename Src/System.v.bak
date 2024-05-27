@@ -1,0 +1,35 @@
+module System (clk, reset, sensorA, sensorB, tcount, full, empty, wtime_digit1_display, wtime_digit2_display, pcount_display);
+        input sensorA,sensorB;
+        input clk;
+        input reset;
+        input [1:0] tcount;
+        output full,empty;
+        output [6:0] wtime_digit1_display, wtime_digit2_display;
+        output [6:0] pcount_display;
+        
+        wire [2:0] pcount;
+        wire [7:0] wtime;
+        wire full,empty;
+        
+        wire [3:0] digit1, digit2;
+        wire sensorAPosEdge;
+        wire sensorBPosEdge;
+        
+        clock_divider clock (clk, reset, CLK10MS);
+        
+        posEdgeDetector sensorAPosEdge_module (.sig(sensorA),.clk(CLK10MS), .pe(sensorAPosEdge));
+        posEdgeDetector sensorBPosEdge_module (.sig(sensorB),.clk(CLK10MS), .pe(sensorBPosEdge));
+        
+        //QueueCounter counter_fsm (CLK10MS,reset,sensorAPosEdge,sensorBPosEdge,pcount);
+        QueueCounter counter_fsm (CLK10MS,reset,sensorA,sensorB,pcount);
+        
+        is_full isFull (pcount, CLK10MS, full, empty);     
+        //memory_module waitTime (.address({tcount,pcount}),.data(wtime));
+        memoryTable waitIime (.address({tcount, pcount}), .wtime(wtime));
+        decoder_7seg pcount_display_function(pcount, pcount_display);
+        wtime_split splitDigits (wtime, digit1, digit2);
+        decoder_7seg wtime_digit1_display_function(digit1, wtime_digit1_display);
+        decoder_7seg wtime_digit2_display_function(digit2, wtime_digit2_display);
+      
+    
+endmodule

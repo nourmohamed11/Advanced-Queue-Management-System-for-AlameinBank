@@ -1,0 +1,95 @@
+`timescale 1ns/100ps
+module TestBench;
+  output full,empty;
+  output waitTime, pcount;
+  wire full,empty;
+  wire [2:0] pcount;
+  wire [4:0] waitTime;
+  reg  sensorA, sensorB, reset;
+  wire [1:0] tcount;
+  reg i;
+  reg [2:0] initialState;
+   assign tcount = 2;
+   assign pcount = 3;
+   System system(clk, reset, sensorA, sensorB, tcount, full, empty, wtime_digit1_display, wtime_digit2_display, pcount_display);
+initial
+  begin
+    initialState = {3*(1'b0)};
+    sensorB = 1'b1;
+    sensorA = 1'b1;
+    reset=0;
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    #10
+    sensorB = 1'b0;  
+    #5  
+    sensorB = 1'b1 ; 
+    #5 
+    sensorA = 1'b0;
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    #10
+    sensorB = 1'b0; 
+    #5 
+    sensorB = 1'b1 ;  
+    #5
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    #10            
+  
+  
+    reset = 1'b1; 
+    sensorA = 1'b0; 
+    #10 
+    reset = 1'b0 ;
+    
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    
+    #10
+    sensorA = 1'b1; 
+    #5 
+    sensorA=1'b0 ; // as if someone tries to exit the qeue (underflow)
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    #10 reset=1'b1; sensorA=1'b1; #10 reset=1'b0 ; //resetting the DUT
+    
+    #5 
+    sensorA=1'b0;
+    for(i=1;i<=8;i=i+1)
+      begin 
+        #5 sensorB=1'b0; 
+        #5 sensorB=1'b1; 
+      end
+    //the qeue should be full by now
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+    
+    
+    #5 sensorB=1'b0; 
+    #5 sensorB=1'b1;
+    $display("Pcount = %d", pcount);
+    $display("Full flag = %d", full);
+    $display("wtime = %b",waitTime);
+    $display("Empty flag = %d", empty);
+    $display("Tcount flag = %d", tcount);
+  end  
+endmodule 

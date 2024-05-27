@@ -1,0 +1,9 @@
+module wtime_split(wtime, digit1, digit2);
+	input wtime;
+	output digit1, digit2;
+
+
+	wire [3:0] digit1 = wtime/10;
+  wire [3:0] digit2 = wtime%10;
+  
+endmodule
